@@ -45,7 +45,7 @@ Built with **3 interactive questions** and **1 celebration finale**. Check the d
 
 ```bash
 # Clone the repository
-git clone https://github.com/vnxyzq/date-invitation.git
+git clone https://github.com/vnxyzq/date-inviation-react.git
 
 # Navigate into the project
 cd date-invitation
