@@ -1,0 +1,846 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 600px;
+}
+
+.section-wrapper {
+  width: 100%;
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FFF8FB 0%, #FFE4F0 25%, #FFF8FB 50%, #FFD6E8 75%, #FFF8FB 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(255, 248, 251, 0.3) 100%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: blob 12s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  top: -150px;
+  left: -150px;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  bottom: -100px;
+  right: -100px;
+  animation-delay: 3s;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: var(--secondary);
+  top: 40%;
+  left: 60%;
+  animation-delay: 6s;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  color: var(--primary);
+  opacity: 0.6;
+}
+
+.question-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.illustration {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(255, 107, 154, 0.3);
+  font-size: 3rem;
+  color: var(--primary);
+}
+
+.illustration i {
+  animation: float 3s ease-in-out infinite;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.title i {
+  color: var(--primary);
+  font-size: 2rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.btn-yes {
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(255, 107, 154, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.btn-yes:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 30px rgba(255, 107, 154, 0.6);
+}
+
+.btn-yes:active {
+  transform: scale(0.92);
+}
+
+.btn-yes i {
+  font-size: 1.3rem;
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.btn-no {
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #CCCCCC, #EEEEEE);
+  color: #888888;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-no:hover {
+  transform: scale(1.05);
+}
+
+.btn-no:active {
+  transform: scale(0.95);
+}
+
+.btn-no i {
+  font-size: 1.3rem;
+  animation: shake 2s ease-in-out infinite;
+}
+
+.no-button-fixed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.speech-bubble {
+  position: relative;
+  background: white;
+  border: 2px solid var(--secondary);
+  border-radius: 20px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  margin-bottom: 8px;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--secondary) transparent transparent transparent;
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.section-title i {
+  color: var(--primary);
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.calendar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.calendar-wrapper {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.cute-calendar {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.cute-calendar .react-calendar__navigation {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.cute-calendar .react-calendar__navigation button {
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  margin: 0 4px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.cute-calendar .react-calendar__navigation button:hover {
+  background: rgba(255, 107, 154, 0.1);
+  transform: scale(1.05);
+}
+
+.cute-calendar .react-calendar__navigation button:disabled {
+  opacity: 0.3;
+}
+
+.cute-calendar .react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.cute-calendar .react-calendar__month-view__weekdays__weekday {
+  padding: 8px;
+}
+
+.cute-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.cute-calendar .react-calendar__tile {
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-size: 1rem;
+  color: var(--text);
+  transition: var(--transition);
+  margin: 2px;
+}
+
+.cute-calendar .react-calendar__tile:hover {
+  background: rgba(255, 107, 154, 0.15);
+  transform: scale(1.1);
+}
+
+.cute-calendar .react-calendar__tile--now {
+  background: rgba(255, 194, 214, 0.5);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.cute-calendar .react-calendar__tile--active {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 107, 154, 0.4);
+}
+
+.cute-calendar .react-calendar__tile--disabled {
+  opacity: 0.3;
+}
+
+.cute-calendar .react-calendar__month-view__days__day--weekend {
+  color: #FF6B6B;
+}
+
+/* Ensure the calendar uses a 7‑column grid */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 2px; /* optional, adjust as needed */
+}
+
+/* Each day cell should fill its grid cell */
+.react-calendar__month-view__days__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1; /* keeps cells square */
+  width: 100%;
+  height: auto;
+}
+
+/* Optional: if you want the week to start on Monday (instead of Sunday) */
+.react-calendar {
+  /* week start on Monday */
+  --react-calendar-week-start: 1; /* not a standard CSS prop – we use the 'locale' prop instead */
+}
+
+.selected-date-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+
+.selected-date-display i {
+  font-size: 1.2rem;
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+.time-section {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.time-title {
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+/* Container for the navigation buttons */
+.step-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Optional: you can also style the buttons directly if needed */
+.step-navigation .btn {
+  min-width: 120px; /* Ensures buttons are wide enough */
+}
+
+/* If your Button component uses these classes, you can override or extend */
+.step-navigation .btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.step-navigation .btn-primary {
+  background-color: #FF6B9A;
+  color: white;
+}
+.time-title i {
+  color: var(--primary);
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.time-selector {
+  position: relative;
+  width: 100%;
+}
+
+.time-dropdown {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  border: 2px solid var(--secondary);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  appearance: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.time-dropdown:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(255, 107, 154, 0.2);
+}
+
+.time-dropdown:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(255, 107, 154, 0.3);
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  pointer-events: none;
+  animation: bounce-down 1.5s ease-in-out infinite;
+}
+
+.restaurant-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  min-height: 140px;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.glass-card.selected {
+  background: rgba(255, 107, 154, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(255, 107, 154, 0.3);
+}
+
+.restaurant-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.others-logo {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 107, 154, 0.1);
+  border-radius: 50%;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.restaurant-section .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.restaurant-logo {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+  margin-bottom: 0.25rem; /* space between image and text */
+}
+
+.restaurant-name {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.restaurant-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.custom-input-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 1rem;
+  border: 2px solid var(--secondary);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.custom-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(255, 107, 154, 0.2);
+}
+
+.custom-input::placeholder {
+  color: var(--text-light);
+}
+
+.btn-primary {
+  padding: 16px 48px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(255, 107, 154, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 8px;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(255, 107, 154, 0.6);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-primary i {
+  font-size: 1.2rem;
+  animation: bounce-right 1.5s ease-in-out infinite;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.final-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.final-content {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.celebration-icon {
+  font-size: 4rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.celebration-icon i {
+  animation: float 2s ease-in-out infinite;
+}
+
+.final-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.final-title i {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.final-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-lg);
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.summary-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.summary-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.summary-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  margin: 8px 0;
+}
+
+.see-you-message {
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.final-heart {
+  font-size: 4rem;
+  color: var(--primary);
+  display: inline-block;
+}
+
+.final-heart i {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 40px;
+  }
+
+  .content {
+    max-width: 700px;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .final-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    max-width: 900px;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .btn-yes,
+  .btn-no {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+
+  .illustration {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+
+  .calendar-wrapper {
+    padding: 16px;
+  }
+
+  .cute-calendar .react-calendar__tile {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

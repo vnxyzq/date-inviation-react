@@ -1,0 +1,14 @@
+:root {
+  --primary: #FF6B9A;
+  --secondary: #FFD6E8;
+  --background: #FFF8FB;
+  --accent: #FFC2D6;
+  --white: #FFFFFF;
+  --text: #4A4A4A;
+  --text-light: #888888;
+  --shadow: 0 8px 32px rgba(255, 107, 154, 0.15);
+  --shadow-lg: 0 16px 48px rgba(255, 107, 154, 0.2);
+  --radius: 30px;
+  --radius-sm: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
